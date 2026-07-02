@@ -1,0 +1,26 @@
+{
+    "name": "xoops/xwhoops",
+    "type": "xoops-module",
+    "description": "Whoops error handler integration for XOOPS 2.7+",
+    "keywords": ["xoops", "xoops-module", "whoops", "debug", "error-handler"],
+    "homepage": "https://github.com/XoopsModules27x/xwhoops",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Richard Griffith",
+            "email": "richard@geekwright.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/XoopsModules27x/xwhoops/issues",
+        "source": "https://github.com/XoopsModules27x/xwhoops"
+    },
+    "require": {
+        "php": ">=8.2",
+        "filp/whoops": "^2.16"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-master"
+    }
+}
