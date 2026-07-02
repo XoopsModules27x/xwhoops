@@ -1,0 +1,25 @@
+# CI caller stub — XOOPS module DevOps overlay.
+# Profile: XoopsCore27 / PHP 8.2+
+# xoops-overlay:profile=core27
+#
+# This file is intentionally tiny. All real CI logic lives in the central,
+# reusable workflow so it can be improved once for every module at once.
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    uses: XoopsModules25x/.github/.github/workflows/module-ci.yml@v1
+    with:
+      profile: core27
+      xoops_core_repo: https://github.com/XOOPS/XoopsCore27
+      xoops_core_ref: master
+      php_matrix: '["8.2", "8.3", "8.4"]'
+    secrets: inherit
