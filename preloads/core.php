@@ -2,9 +2,9 @@
 
 //namespace XoopsModules\Xwhoops;
 
-use Xmf\Module\Helper\Permission;
-use Whoops\Run;
 use Whoops\Handler\PrettyPageHandler;
+use Whoops\Run;
+use Xmf\Module\Helper\Permission;
 
 /**
  * @copyright 2000-2026 XOOPS Project (https://xoops.org)
@@ -22,12 +22,12 @@ class XwhoopsCorePreload extends \XoopsPreloadItem
      */
     public static function eventCoreIncludeCommonAuthSuccess(): void
     {
-        if (!self::shouldRegisterWhoops()) {
+        if (! self::shouldRegisterWhoops()) {
             return;
         }
 
         // Skip Whoops registration cleanly if the autoloader is missing.
-        if (!self::initializeAutoloader()) {
+        if (! self::initializeAutoloader()) {
             return;
         }
         self::initializeWhoops();
@@ -40,17 +40,17 @@ class XwhoopsCorePreload extends \XoopsPreloadItem
      */
     private static function shouldRegisterWhoops(): bool
     {
-        if (!\defined('XOOPS_DEBUG') || !XOOPS_DEBUG) {
+        if (! \defined('XOOPS_DEBUG') || ! XOOPS_DEBUG) {
             return false;
         }
 
         $xoopsUser = $GLOBALS['xoopsUser'] ?? null;
-        if (!$xoopsUser instanceof \XoopsUser) {
+        if (! $xoopsUser instanceof \XoopsUser) {
             return false;
         }
 
         $module = \XoopsModule::getByDirname('xwhoops');
-        if (!$module instanceof \XoopsModule) {
+        if (! $module instanceof \XoopsModule) {
             return false;
         }
 
@@ -72,7 +72,7 @@ class XwhoopsCorePreload extends \XoopsPreloadItem
     {
         $autoloader = \dirname(__DIR__) . self::AUTOLOADER_PATH;
 
-        if (!\file_exists($autoloader)) {
+        if (! \file_exists($autoloader)) {
             \trigger_error(
                 'xwhoops: vendor/autoload.php missing — '
                 . "run 'composer install' inside modules/xwhoops "
@@ -80,16 +80,15 @@ class XwhoopsCorePreload extends \XoopsPreloadItem
                 . 'Whoops error handler is disabled until then.',
                 \E_USER_WARNING
             );
+
             return false;
         }
 
         require_once $autoloader;
+
         return true;
     }
 
-    /**
-     * @return void
-     */
     private static function initializeWhoops(): void
     {
         $permissionHelper = new Permission('xwhoops');
@@ -98,9 +97,6 @@ class XwhoopsCorePreload extends \XoopsPreloadItem
         }
     }
 
-    /**
-     * @return void
-     */
     private static function registerWhoops(): void
     {
         $whoops = new Run();
@@ -112,9 +108,7 @@ class XwhoopsCorePreload extends \XoopsPreloadItem
 
         $handler->addDataTableCallback(
             \_LOGGER_QUERIES,
-            static function () {
-                return self::getLoggerQueries();
-            }
+            static fn (): array => self::getLoggerQueries()
         );
     }
 
@@ -132,7 +126,7 @@ class XwhoopsCorePreload extends \XoopsPreloadItem
         $queries = [];
         $count = 1;
 
-        foreach ($logger->queries as $key => $query) {
+        foreach ($logger->queries as $query) {
             $queries[$count] = self::formatQuery($query, $count);
             $count++;
         }
@@ -140,12 +134,6 @@ class XwhoopsCorePreload extends \XoopsPreloadItem
         return $queries;
     }
 
-    /**
-     * @param array $query
-     * @param int   $count
-     *
-     * @return string
-     */
     private static function formatQuery(array $query, int $count): string
     {
         $error = (null === $query['errno'] ? '' : $query['errno'] . ' ') . ($query['error'] ?? '');
@@ -156,6 +144,6 @@ class XwhoopsCorePreload extends \XoopsPreloadItem
             $queryKey = $count . ' - Error';
         }
 
-        return $queryKey . ': ' . \htmlentities($query['sql'], \ENT_QUOTES | \ENT_HTML5) . ' ' . $error;
+        return $queryKey . ': ' . \htmlentities((string) $query['sql'], \ENT_QUOTES | \ENT_HTML5) . ' ' . $error;
     }
 }

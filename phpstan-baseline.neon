@@ -1,12 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: '#^Instantiated class NoSuchClass not found\.$#'
-			identifier: class.notFound
-			count: 1
-			path: admin/ExampleClass.php
-
-		-
 			message: '#^Call to static method getInstance\(\) on an unknown class Xmf\\Module\\Admin\.$#'
 			identifier: class.notFound
 			count: 1
@@ -37,26 +31,8 @@ parameters:
 			path: admin/index.php
 
 		-
-			message: '#^Call to static method getString\(\) on an unknown class Xmf\\Request\.$#'
-			identifier: class.notFound
-			count: 1
-			path: admin/index.php
-
-		-
 			message: '#^Constant _MI_XWHOOPS_NEEDS_COMPOSER not found\.$#'
 			identifier: constant.notFound
-			count: 1
-			path: admin/index.php
-
-		-
-			message: '#^Function redirect_header not found\.$#'
-			identifier: function.notFound
-			count: 1
-			path: admin/index.php
-
-		-
-			message: '#^Result of method ExampleClass\:\:flawedMethod\(\) \(void\) is used\.$#'
-			identifier: method.void
 			count: 1
 			path: admin/index.php
 
@@ -68,12 +44,6 @@ parameters:
 
 		-
 			message: '#^Constant _MI_XWHOOPS_ABOUT not found\.$#'
-			identifier: constant.notFound
-			count: 1
-			path: admin/menu.php
-
-		-
-			message: '#^Constant _MI_XWHOOPS_EXAMPLE not found\.$#'
 			identifier: constant.notFound
 			count: 1
 			path: admin/menu.php

@@ -18,7 +18,7 @@
 use Xmf\Language;
 use Xmf\Module\Admin;
 
-if (!defined('XOOPS_ROOT_PATH')) {
+if (! defined('XOOPS_ROOT_PATH')) {
     throw new \RuntimeException('XOOPS root path not defined');
 }
 
@@ -45,12 +45,6 @@ $adminmenu[] = [
     'title' => _MI_XWHOOPS_PERMISSIONS,
     'link' => 'admin/permissions.php',
     'icon' => $pathIcon32 . 'permissions.png',
-];
-// Test
-$adminmenu[] = [
-    'title' => _MI_XWHOOPS_EXAMPLE,
-    'link' => 'admin/index.php?do=example',
-    'icon' => $pathIcon32 . 'exec.png',
 ];
 // About
 $adminmenu[] = [

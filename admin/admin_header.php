@@ -22,7 +22,9 @@ require_once $path . '/mainfile.php';
 require_once $path . '/include/cp_functions.php';
 require_once $path . '/include/cp_header.php';
 
-class_exists('\Xmf\Module\Admin') || die('XMF is required.');
+if (! class_exists('\Xmf\Module\Admin')) {
+    die('XMF is required.');
+}
 
 global $xoopsModule;
 

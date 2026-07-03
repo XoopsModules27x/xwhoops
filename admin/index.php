@@ -11,7 +11,6 @@
  */
 
 use Xmf\Module\Admin;
-use Xmf\Request;
 
 /**
  * @copyright 2000-2026 XOOPS Project (https://xoops.org)
@@ -23,41 +22,9 @@ require __DIR__ . '/admin_header.php';
 $moduleAdmin = Admin::getInstance();
 $moduleAdmin->displayNavigation('index.php');
 $autoloader = dirname(__DIR__) . '/vendor/autoload.php';
-if (!file_exists($autoloader)) {
+if (! file_exists($autoloader)) {
     $moduleAdmin->addConfigWarning(_MI_XWHOOPS_NEEDS_COMPOSER);
 }
 $moduleAdmin->displayIndex();
-
-// example - bounces around and into an error
-// will show xWhoops page if user has permission
-$op = Request::getString('do');
-if ('example' === $op) {
-    if (!\defined('XOOPS_DEBUG') || !XOOPS_DEBUG) {
-        redirect_header(
-            'index.php',
-            3,
-            \defined('_MA_XWHOOPS_DEBUG_DISABLED') ? _MA_XWHOOPS_DEBUG_DISABLED : 'XOOPS debug is disabled.'
-        );
-        exit;
-    }
-
-    require_once __DIR__ . '/ExampleClass.php';
-    number1();
-}
-
-function number1(): void
-{
-    number3('test message');
-}
-
-function number2(ExampleClass $ec): void
-{
-    $msg = $ec->flawedMethod();
-}
-
-function number3(string $msg): void
-{
-    number2(new ExampleClass($msg));
-}
 
 require __DIR__ . '/admin_footer.php';

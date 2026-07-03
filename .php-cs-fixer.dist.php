@@ -36,6 +36,11 @@ return (new PhpCsFixer\Config())
     ->setRules([
         '@PSR12'                       => true,
         '@PSR12:risky'                 => true,
+        // XOOPS house style: keep `<?php declare(strict_types=1);` on ONE line.
+        // PSR-12 would split it; disabling these two opening-tag rules preserves the
+        // one-liner, while `declare_strict_types` below still enforces/adds it inline.
+        'blank_line_after_opening_tag' => false,
+        'linebreak_after_opening_tag'  => false,
         'array_syntax'                 => ['syntax' => 'short'],
         'binary_operator_spaces'       => ['default' => 'single_space'],
         'blank_line_before_statement'  => ['statements' => ['break', 'continue', 'declare', 'return', 'throw', 'try']],
