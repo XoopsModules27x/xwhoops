@@ -175,6 +175,11 @@ namespace {
     {
         public static function getByDirname(string $dirname): mixed {}
     }
+
+    class XoopsPreloadItem
+    {
+        public function __construct() {}
+    }
 }
 
 namespace Xmf\Module {

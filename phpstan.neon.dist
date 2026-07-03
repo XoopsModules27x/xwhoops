@@ -35,9 +35,12 @@ parameters:
         - rector.php (?)
         - .php-cs-fixer.dist.php (?)
 
-    # XOOPS core classes (XoopsObject, handlers, Criteria, $xoopsDB, …) are not
-    # composer-autoloadable during analysis. Signatures come from this stub.
-    stubFiles:
+    # XOOPS core classes (XoopsObject, XoopsPreloadItem, handlers, Criteria, …) are
+    # not composer-autoloadable during analysis. Use `scanFiles` (NOT `stubFiles`) so
+    # the classes are registered as existing and `extends`/`implements` resolve —
+    # `stubFiles` only refines signatures of classes PHPStan can already discover, so a
+    # module extending a core class would hit a non-ignorable `class.notFound`.
+    scanFiles:
         - stubs/xoops.stub
 
     bootstrapFiles:
