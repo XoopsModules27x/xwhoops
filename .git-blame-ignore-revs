@@ -8,3 +8,6 @@
 #     git config blame.ignoreRevsFile .git-blame-ignore-revs
 #
 # GitHub honors this file automatically. One commit SHA per line; comments allowed.
+
+# chore(qa): make composer qa pass across the module — bulk PHP-CS-Fixer/Rector reformat
+d57ec0fcd08b7bf1f5481478a3847e502e9601fb
