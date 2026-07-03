@@ -1,4 +1,4 @@
-# Path-based git attributes — XOOPS module DevOps overlay.
+# Path-based git attributes — XOOPS module DevOps baseline.
 # xoops-overlay:profile=core27
 # https://git-scm.com/docs/gitattributes
 
@@ -28,7 +28,7 @@
 /phpunit.xml.dist       export-ignore
 /psalm.xml              export-ignore
 /rector.php             export-ignore
+/sonar-project.properties export-ignore
 /.git-blame-ignore-revs export-ignore
 /composer.lock          export-ignore
-/CONTRIBUTING.md        export-ignore
 /CHANGELOG.md           export-ignore

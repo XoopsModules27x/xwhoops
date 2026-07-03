@@ -19,7 +19,7 @@ $root = dirname(__DIR__, 2);
 $versionFile = $root . '/xoops_version.php';
 if (is_file($versionFile)) {
     $src = (string) file_get_contents($versionFile);
-    if (preg_match('/[\'"]dirname[\'"]\s*\]\s*=\s*[\'"]([^\'"]+)[\'"]/', $src, $m)) {
+    if (1 === preg_match('/[\'"]dirname[\'"]\s*\]\s*=\s*[\'"]([^\'"]+)[\'"]/', $src, $m)) {
         echo $m[1];
         exit(0);
     }
@@ -29,7 +29,7 @@ if (is_file($versionFile)) {
 $moduleJson = $root . '/module.json';
 if (is_file($moduleJson)) {
     $data = json_decode((string) file_get_contents($moduleJson), true);
-    if (is_array($data) && !empty($data['dirname'])) {
+    if (is_array($data) && isset($data['dirname']) && '' !== $data['dirname']) {
         echo (string) $data['dirname'];
         exit(0);
     }

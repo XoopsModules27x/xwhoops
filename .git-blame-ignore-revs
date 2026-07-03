@@ -1,7 +1,7 @@
-# git blame ignore-revs — XOOPS module DevOps overlay.
+# git blame ignore-revs — XOOPS module DevOps baseline.
 # xoops-overlay:profile=core27
 #
-# Adopting the overlay reformats the whole module once (PHP-CS-Fixer). That bulk
+# Adopting the baseline reformats the whole module once (PHP-CS-Fixer). That bulk
 # commit otherwise dominates `git blame`. After the reformat commit lands, append
 # its FULL 40-char SHA below, then run once:
 #

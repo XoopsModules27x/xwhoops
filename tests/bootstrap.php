@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * PHPUnit bootstrap — XOOPS module DevOps overlay.
+ * PHPUnit bootstrap — XOOPS module DevOps baseline.
  *
  * Two run modes, decided automatically:
  *   1. Integration: a *configured* XOOPS is reachable (XOOPS_ROOT_PATH points at a
@@ -24,7 +24,7 @@ declare(strict_types=1);
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/helpers/RequiresXoops.php';
 
-$xoopsRoot   = getenv('XOOPS_ROOT_PATH') ?: '';
+$xoopsRoot = getenv('XOOPS_ROOT_PATH') ?: '';
 $integration = false;
 
 if ($xoopsRoot !== '' && is_dir($xoopsRoot)) {
@@ -32,11 +32,11 @@ if ($xoopsRoot !== '' && is_dir($xoopsRoot)) {
     $mainfile = $xoopsRoot . '/mainfile.php';
 
     if (is_file($mainfile)) {
-        if (!defined('XOOPS_ROOT_PATH')) {
+        if (! defined('XOOPS_ROOT_PATH')) {
             define('XOOPS_ROOT_PATH', $xoopsRoot);
         }
         $trust = getenv('XOOPS_TRUST_PATH') ?: $xoopsRoot;
-        if (!defined('XOOPS_TRUST_PATH')) {
+        if (! defined('XOOPS_TRUST_PATH')) {
             define('XOOPS_TRUST_PATH', $trust);
         }
 
@@ -59,6 +59,6 @@ if ($xoopsRoot !== '' && is_dir($xoopsRoot)) {
  * Single source of truth for "are integration tests possible in this run?".
  * Read by the RequiresXoops trait.
  */
-if (!defined('XOOPS_OVERLAY_INTEGRATION')) {
+if (! defined('XOOPS_OVERLAY_INTEGRATION')) {
     define('XOOPS_OVERLAY_INTEGRATION', $integration);
 }

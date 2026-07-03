@@ -1,12 +1,12 @@
-# PHPStan configuration — XOOPS module DevOps overlay.
-# Generated from the overlay template for profile: XoopsCore27 / PHP 8.2+
+# PHPStan configuration — XOOPS module DevOps baseline.
+# Generated from the baseline template for profile: XoopsCore27 / PHP 8.2+
 # Overlay version: 1.1.0
 # xoops-overlay:profile=core27
 #
-# Copy to phpstan.neon to override locally; the .dist file stays in sync with the overlay.
+# Copy to phpstan.neon to override locally; the .dist file stays in sync with the baseline.
 #
 # phpstan-strict-rules and phpstan-deprecation-rules are activated automatically by
-# phpstan/extension-installer (added to require-dev by the overlay installer). No manual
+# phpstan/extension-installer (added to require-dev by the baseline installer). No manual
 # `includes` of their rules.neon is needed — and adding one would double-register them.
 includes:
     - phpstan-baseline.neon

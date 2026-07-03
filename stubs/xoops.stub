@@ -1,7 +1,7 @@
 <?php
 
 /**
- * PHPStan stub — XOOPS core classes — XOOPS module DevOps overlay.
+ * PHPStan stub — XOOPS core classes — XOOPS module DevOps baseline.
  *
  * Minimal signatures so static analysis understands the most common XOOPS APIs
  * a module touches, WITHOUT a full XOOPS runtime on the analysis path. This is a

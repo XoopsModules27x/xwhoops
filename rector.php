@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 /**
- * Rector configuration — XOOPS module DevOps overlay.
+ * Rector configuration — XOOPS module DevOps baseline.
  *
- * Generated from the overlay template for profile: XoopsCore27 / PHP 8.2+
+ * Generated from the baseline template for profile: XoopsCore27 / PHP 8.2+
  * Overlay version: 1.1.0  (do not edit the marker line below)
  * xoops-overlay:profile=core27
  *
@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
 use Rector\ValueObject\PhpVersion;
+use Xoops\Rector\Set\XoopsSetList;
 
 // Only scan paths that actually exist in this module — a legacy module may have
 // `class/` but no `src/`, a modern one the reverse. Filter at runtime so Rector
@@ -29,7 +30,7 @@ $paths = array_filter([
     __DIR__ . '/preloads',
     __DIR__ . '/src',
     __DIR__ . '/tests',
-], 'is_dir');
+], is_dir(...));
 
 return RectorConfig::configure()
     ->withCache(__DIR__ . '/.build/rector')
@@ -45,6 +46,10 @@ return RectorConfig::configure()
         privatization: true,
         earlyReturn: true,
     )
+    // XOOPS-specific modernisation (DB query/exec split, removed PHP funcs, MyTextSanitizer +
+    // Smarty PHP-API renames, …) from xoops/rector-xoops. Behaviour-preserving; also add
+    // XoopsSetList::XOOPS_RISKY if you will review every diff (input filtering / escaping rewrites).
+    ->withSets([XoopsSetList::XOOPS])
     // XOOPS legacy globals & dynamic handler patterns generate noise; skip what we cannot safely change.
     ->withSkip([
         __DIR__ . '/vendor',

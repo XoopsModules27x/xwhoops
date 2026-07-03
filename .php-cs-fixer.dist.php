@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * PHP-CS-Fixer configuration — XOOPS module DevOps overlay.
+ * PHP-CS-Fixer configuration — XOOPS module DevOps baseline.
  *
  * Single source of truth for code style across all XOOPS modules.
  * (StyleCI and Pint are intentionally NOT used; CS-Fixer is the one engine.)
@@ -22,10 +22,11 @@ $paths = array_filter([
     __DIR__ . '/preloads',
     __DIR__ . '/src',
     __DIR__ . '/tests',
-], 'is_dir');
+], is_dir(...));
 
 $finder = (new PhpCsFixer\Finder())
     ->in($paths ?: [__DIR__])
+    ->exclude(['vendor', '.build', 'node_modules'])
     ->name('*.php')
     ->ignoreDotFiles(true)
     ->ignoreVCS(true);

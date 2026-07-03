@@ -1,5 +1,5 @@
 name: Bug Report
-description: Report an Issue or Bug with the Package
+description: Report an Issue or Bug with the Module
 title: "[Bug]: "
 labels: ["bug"]
 body:
@@ -24,11 +24,19 @@ body:
       validations:
           required: true
     - type: input
-      id: package-version
+      id: module-version
       attributes:
-          label: Package Version
-          description: What version of our Package are you running? Please be as specific as possible
+          label: Module Version
+          description: What version of this module are you running? Please be as specific as possible
           placeholder: 2.0.0
+      validations:
+          required: true
+    - type: input
+      id: xoops-version
+      attributes:
+          label: XOOPS Version
+          description: What version of XOOPS are you running? Please be as specific as possible
+          placeholder: 2.7.0
       validations:
           required: true
     - type: input
@@ -42,7 +50,7 @@ body:
     - type: dropdown
       id: operating-systems
       attributes:
-        label: Which operating systems does with happen with?
+        label: Which operating systems does this happen with?
         description: You may select more than one.
         multiple: true
         options:

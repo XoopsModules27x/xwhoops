@@ -3,7 +3,7 @@
 
 ## Our Pledge
 
-As contributors and maintainers of this project, and in order to keep Yii community open and welcoming, we ask to
+As contributors and maintainers of this project, and in order to keep the XOOPS community open and welcoming, we ask that you
 respect all community members.
 
 ## Our Standards

@@ -1,4 +1,4 @@
-# EditorConfig — XOOPS module DevOps overlay. https://editorconfig.org
+# EditorConfig — XOOPS module DevOps baseline. https://editorconfig.org
 # xoops-overlay:profile=core27
 root = true
 

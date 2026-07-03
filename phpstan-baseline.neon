@@ -1,4 +1,4 @@
-# PHPStan baseline — XOOPS module DevOps overlay.
+# PHPStan baseline — XOOPS module DevOps baseline.
 # Generated empty; regenerate per-module with: composer analyse:baseline
 # xoops-overlay:profile=core27
 parameters:

@@ -1,4 +1,4 @@
-# Dependabot — XOOPS module DevOps overlay.
+# Dependabot — XOOPS module DevOps baseline.
 # xoops-overlay:profile=core27
 #
 # NOTE: the `dependencies` / `composer` / `github-actions` labels must exist in the
@@ -19,6 +19,7 @@ updates:
         patterns:
           - "phpstan/*"
           - "rector/*"
+          - "xoops/rector-xoops"
           - "friendsofphp/*"
           - "phpunit/*"
 

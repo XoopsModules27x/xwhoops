@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * RequiresXoops — XOOPS module DevOps overlay.
+ * RequiresXoops — XOOPS module DevOps baseline.
  *
  * Mix into any PHPUnit test case whose assertions need a live, booted XOOPS
  * runtime (handlers, Criteria queries, core globals). Call requiresXoops() at the
@@ -11,12 +11,13 @@ declare(strict_types=1);
  * unit-only mode — see tests/bootstrap.php, which defines XOOPS_OVERLAY_INTEGRATION.
  *
  * Defined in the global namespace and required by tests/bootstrap.php so it is
- * available without any PSR-4 mapping. Use it with `use RequiresXoops;`.
+ * available without any PSR-4 mapping. In a namespaced test, reference it with the
+ * leading backslash: `use \RequiresXoops;`.
  *
  * Example:
  *     final class HandlerTest extends \PHPUnit\Framework\TestCase
  *     {
- *         use RequiresXoops;
+ *         use \RequiresXoops;
  *
  *         protected function setUp(): void
  *         {
@@ -33,8 +34,8 @@ trait RequiresXoops
      */
     protected function requiresXoops(): void
     {
-        if (!defined('XOOPS_OVERLAY_INTEGRATION') || true !== XOOPS_OVERLAY_INTEGRATION) {
-            $this->markTestSkipped('No bootable XOOPS runtime; skipping integration test.');
+        if (! defined('XOOPS_OVERLAY_INTEGRATION') || true !== XOOPS_OVERLAY_INTEGRATION) {
+            static::markTestSkipped('No bootable XOOPS runtime; skipping integration test.');
         }
     }
 }
