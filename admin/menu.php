@@ -24,7 +24,7 @@ if (! defined('XOOPS_ROOT_PATH')) {
 
 $moduleDirName = \basename(\dirname(__DIR__));
 Language::load('modinfo', $moduleDirName);
-Language::load('main', $moduleDirName);
+Language::load('admin', $moduleDirName);
 
 
 // get path to icons

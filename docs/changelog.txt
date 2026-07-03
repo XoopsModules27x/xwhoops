@@ -14,7 +14,7 @@ v0.4 [NOT RELEASED]
 
 v0.3
 ================================
-- Fail gracefully if "compose install" has not been run
+- Fail gracefully if "composer install" has not been run
 - Add MySQL queries to the environment section
 
 v0.2

@@ -107,7 +107,7 @@ class XwhoopsCorePreload extends \XoopsPreloadItem
         $whoops->register();
 
         $handler->addDataTableCallback(
-            \_LOGGER_QUERIES,
+            \defined('_LOGGER_QUERIES') ? \_LOGGER_QUERIES : 'Queries',
             static fn (): array => self::getLoggerQueries()
         );
     }

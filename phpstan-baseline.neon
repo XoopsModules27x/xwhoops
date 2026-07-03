@@ -169,12 +169,6 @@ parameters:
 			path: admin/permissions.php
 
 		-
-			message: '#^Call to an undefined static method XoopsModule\:\:getByDirname\(\)\.$#'
-			identifier: staticMethod.notFound
-			count: 1
-			path: preloads/core.php
-
-		-
 			message: '#^Call to method checkPermission\(\) on an unknown class Xmf\\Module\\Helper\\Permission\.$#'
 			identifier: class.notFound
 			count: 1
@@ -183,12 +177,6 @@ parameters:
 		-
 			message: '#^Call to static method getInstance\(\) on an unknown class XoopsLogger\.$#'
 			identifier: class.notFound
-			count: 1
-			path: preloads/core.php
-
-		-
-			message: '#^Constant _LOGGER_QUERIES not found\.$#'
-			identifier: constant.notFound
 			count: 1
 			path: preloads/core.php
 

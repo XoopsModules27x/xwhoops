@@ -159,6 +159,8 @@ namespace {
         public function getInfo(string $name = ''): mixed {}
 
         public function dirname(): string {}
+
+        public static function getByDirname(string $dirname): ?XoopsModule {}
     }
 
     class XoopsUser extends XoopsObject
@@ -169,11 +171,6 @@ namespace {
 
         /** @return array<int,int> */
         public function getGroups(): array {}
-    }
-
-    class XoopsModules
-    {
-        public static function getByDirname(string $dirname): mixed {}
     }
 
     class XoopsPreloadItem

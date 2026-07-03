@@ -16,7 +16,7 @@
 
 
     <p>
-        <br> <br> To add <strong>xwhoops</strong> to your XoopsCore25, follow these steps<br> <br>
+        <br> <br> To add <strong>xwhoops</strong> to your XOOPS 2.7.0+ site, follow these steps<br> <br>
 
          <ul>
         <li>download the distribution archive of your choice</li>

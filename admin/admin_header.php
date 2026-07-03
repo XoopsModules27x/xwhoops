@@ -29,6 +29,6 @@ if (! class_exists('\Xmf\Module\Admin')) {
 global $xoopsModule;
 
 $moduleDirName = \basename(\dirname(__DIR__));
-Language::load('main', $moduleDirName);
+Language::load('admin', $moduleDirName);
 
 xoops_cp_header();
