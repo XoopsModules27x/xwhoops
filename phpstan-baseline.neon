@@ -229,7 +229,7 @@ parameters:
 			path: preloads/core.php
 
 		-
-			message: '#^Method Xwhoops25CorePreload\:\:formatQuery\(\) has parameter \$query with no value type specified in iterable type array\.$#'
+			message: '#^Method XwhoopsCorePreload\:\:formatQuery\(\) has parameter \$query with no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
 			path: preloads/core.php

@@ -1,0 +1,23 @@
+v1.0.1 [NOT RELEASED]
+================================
+- Guard Whoops registration behind XOOPS_DEBUG, authenticated site-admin access, and xWhoops permission.
+- Document production safety requirements.
+
+v1.0 Beta 1 [NOT RELEASED]
+================================
+- PHP 8 updates (mamba)
+
+
+v0.4 [NOT RELEASED]
+================================
+- polish admin section
+
+v0.3
+================================
+- Fail gracefully if "compose install" has not been run
+- Add MySQL queries to the environment section
+
+v0.2
+================================
+- Forked from geekwright/xwhoops
+- Adapted to XoopsCore25
